@@ -48,3 +48,10 @@ body {
 #wrapper {
     background-color: var(--testing);
 }
+
+
+.bar {
+    width: 0px;
+    height: 100px;
+    background-color: black;
+}

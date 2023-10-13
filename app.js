@@ -19,8 +19,6 @@ function setupElements() {
 
 setupElements();
 
-const gn = new GyroNorm();
-
 if (typeof DeviceMotionEvent.requestPermission === 'function') {
     DeviceMotionEvent.requestPermission()
       .then(permissionState => {
@@ -51,8 +49,11 @@ if (typeof DeviceMotionEvent.requestPermission === 'function') {
     const z = acceleration.z.toFixed(2);
   
     document.getElementById("x-axis").textContent = x;
+    document.getElementById("bar1").style.width = x*100+"px";
     document.getElementById("y-axis").textContent = y;
+    document.getElementById("bar2").style.width = x*100+"px";
     document.getElementById("z-axis").textContent = z;
+    document.getElementById("bar3").style.width = x*100+"px";
   }
 
 // - - - 
