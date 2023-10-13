@@ -1,0 +1,53 @@
+@charset "UTF-8";
+
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+:root {
+    --background: #000000;
+    --type: #e3e3e3;
+    --interface: #3a3a3a;
+    --accent: #d3d3d3;
+    --testing: #bf3ed8;
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+    overscroll-behavior: none;
+}
+
+img {
+    display: block;
+    max-width: 100%;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+}
+
+/* - - - - END OF BOILERPLATE - - - - */
+
+
+#container {
+    background-color: var(--interface);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+#wrapper {
+    background-color: var(--testing);
+}
+
+
+.bar {
+    width: 30px;
+    height: 100px;
+    background-color: black;
+}
