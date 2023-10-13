@@ -19,27 +19,53 @@ function setupElements() {
 
 setupElements();
 
-const gn = new GyroNorm();
+const requestPermissionBtn = document.getElementById("requestPermissionBtn");
+        requestPermissionBtn.addEventListener("click", requestSensorPermission);
 
-gn.init().then(function() {
-  gn.start(function(data) {
-    const x = data.dm.x;
-    const y = data.dm.y;
-    const z = data.dm.z;
+        function requestSensorPermission() {
+            if (typeof DeviceMotionEvent.requestPermission === 'function') {
+                DeviceMotionEvent.requestPermission()
+                    .then(permissionState => {
+                        if (permissionState === 'granted') {
+                            startAccelerometer();
+                            document.getElementById("wrapper").style.backgroundColor = "green";
+                        } else {
+                            console.error('Permission to access accelerometer data denied.');
+                            document.getElementById("wrapper").style.backgroundColor = "red";
+                        }
+                    })
+                    .catch(console.error);
+            } else {
+                console.error('Device does not support the permissions API.');
+                document.getElementById("wrapper").style.backgroundColor = "orange";
+            }
+        }
 
-    // Update your web page with the accelerometer data
-    document.getElementById("x-axis").textContent = x.toFixed(3);
-    document.getElementById("bar1").style.width = x*100+"px";
-    document.getElementById("y-axis").textContent = y.toFixed(3);
-    document.getElementById("bar2").style.width = y*100+"px";
-    document.getElementById("z-axis").textContent = z.toFixed(3);
-    document.getElementById("bar3").style.width = z*100+"px";
+        function startAccelerometer() {
+          const gn = new GyroNorm();
 
-    // You can perform actions or recognition based on the accelerometer data here.
-  });
-}).catch(function(e) {
-  console.error("GyroNorm failed to initialize: " + e);
-});
+          gn.init().then(function() {
+            gn.start(function(data) {
+              const x = data.dm.x;
+              const y = data.dm.y;
+              const z = data.dm.z;
+          
+              // Update your web page with the accelerometer data
+              document.getElementById("x-axis").textContent = x.toFixed(3);
+              document.getElementById("bar1").style.width = x*100+"px";
+              document.getElementById("y-axis").textContent = y.toFixed(3);
+              document.getElementById("bar2").style.width = y*100+"px";
+              document.getElementById("z-axis").textContent = z.toFixed(3);
+              document.getElementById("bar3").style.width = z*100+"px";
+          
+              // You can perform actions or recognition based on the accelerometer data here.
+            });
+          }).catch(function(e) {
+            console.error("GyroNorm failed to initialize: " + e);
+          });
+        }
+
+
 
 // - - - 
 
