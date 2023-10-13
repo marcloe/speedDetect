@@ -1,9 +1,5 @@
 @charset "UTF-8";
 
-@font-face {font-family: "Inter-Light"; src: url('/fonts/Inter-Light.woff2');}
-@font-face {font-family: "Inter-Regular"; src: url('/fonts/Inter-Regular.woff2');}
-@font-face {font-family: "Inter-Medium"; src: url('/fonts/Inter-Medium.woff2');}
-@font-face {font-family: "Inter-SemiBold"; src: url('/fonts/Inter-SemiBold.woff2');}
 
 *,
 *::before,
@@ -51,7 +47,7 @@ body {
 
 
 .bar {
-    width: 0px;
+    width: 30px;
     height: 100px;
     background-color: black;
 }

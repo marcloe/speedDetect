@@ -29,13 +29,16 @@ const requestPermissionBtn = document.getElementById("requestPermissionBtn");
                     .then(permissionState => {
                         if (permissionState === 'granted') {
                             startAccelerometer();
+                            document.getElementById("wrapper").style.backgroundColor = "green";
                         } else {
                             console.error('Permission to access accelerometer data denied.');
+                            document.getElementById("wrapper").style.backgroundColor = "red";
                         }
                     })
                     .catch(console.error);
             } else {
                 console.error('Device does not support the permissions API.');
+                document.getElementById("wrapper").style.backgroundColor = "orange";
             }
         }
 
