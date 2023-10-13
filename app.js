@@ -51,12 +51,11 @@ const requestPermissionBtn = document.getElementById("requestPermissionBtn");
         }
 
         function handleMotion(event) {
-            const acceleration = event.accelerationIncludingGravity;
-            const x = acceleration.x.toFixed(2);
-            const y = acceleration.y.toFixed(2);
-            const z = acceleration.z.toFixed(2);
+            const acceleration = event.acceleration;
+            const x = acceleration.x.toFixed(3);
+            const y = acceleration.y.toFixed(3);
+            const z = acceleration.z.toFixed(3);
 
-            // Update the values on the web page
             document.getElementById("x-axis").textContent = x;
             document.getElementById("bar1").style.width = x*100+"px";
             document.getElementById("y-axis").textContent = y;
@@ -64,7 +63,6 @@ const requestPermissionBtn = document.getElementById("requestPermissionBtn");
             document.getElementById("z-axis").textContent = z;
             document.getElementById("bar3").style.width = z*100+"px";
 
-            // You can perform actions or recognition based on the accelerometer data here.
         }
 
 // - - - 
