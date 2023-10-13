@@ -45,7 +45,14 @@ if (typeof DeviceMotionEvent.requestPermission === 'function') {
   }
   
   function handleMotion(event) {
-    // Your accelerometer data handling code here
+    const acceleration = event.accelerationIncludingGravity;
+    const x = acceleration.x.toFixed(2);
+    const y = acceleration.y.toFixed(2);
+    const z = acceleration.z.toFixed(2);
+  
+    document.getElementById("x-axis").textContent = x;
+    document.getElementById("y-axis").textContent = y;
+    document.getElementById("z-axis").textContent = z;
   }
 
 // - - - 
