@@ -11,7 +11,7 @@
     --background: #000000;
     --type: #e3e3e3;
     --interface: #3a3a3a;
-    --accent: #434343;
+    --accent: #d3d3d3;
     --testing: #bf3ed8;
 }
 
@@ -42,7 +42,7 @@ body {
 }
 
 #wrapper {
-    background-color: var(--testing);
+    background-color: var(--accent);
 }
 
 
